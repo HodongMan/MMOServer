@@ -38,4 +38,10 @@ public:
 	static const unsigned int RECOMMENDED_MESSAGE_SIZE = 1400;
 	static const unsigned int NUM_MUTEXES = 2048;
 	static const unsigned int MAX_NUM_THREADS = 16;
+
+	IOCPManagerServer( unsigned short portNumber );
+	virtual ~IOCPManagerServer( void );
+
+	virtual void run( void ) noexcept;
+
 };
