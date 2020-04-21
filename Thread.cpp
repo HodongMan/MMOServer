@@ -9,8 +9,7 @@ Thread*	Thread::g_threads[256]				= { nullptr };
 volatile unsigned int Thread::g_numThreads	= 0;
 
 Thread::Thread( void )
-	: _threadHandle{ -1 }
-	, _threadID{ 0 }
+	: _threadID{ 0 }
 	, _stopRequest{ true }
 {
 
@@ -82,18 +81,41 @@ void Thread::changeHardwareThread(const u32 hardwareThread) noexcept
 {
 }
 
-void Thread::suspendAllThreads(DWORD exceptionThread) noexcept
+void Thread::suspendAllThreads( DWORD exceptionThread ) noexcept
 {
+	for ( unsigned int ii = 0; ii < g_numThreads; ++ii )
+	{
+		if ( g_threads[ii]->getThreadId() != exceptionThread )
+		{
+			g_threads[ii]->suspend();
+		}
+	}
 }
 
-Thread::~Thread(void)
+Thread::~Thread( void )
 {
+
 }
 
-void Thread::updateHardwareThread(void) const noexcept
+void Thread::updateHardwareThread( void ) const noexcept
 {
+
 }
 
 unsigned __stdcall threadStarter( void * thread )
 {
+	Thread* newThread		= nullptr;
+
+	newThread				= static_cast<Thread*>( thread );
+
+	Thread::g_threads[Thread::g_numThreads] = newThread;
+	Thread::g_numThreads += 1;
+
+	newThread->_threadID = GetCurrentThreadId();
+	newThread->run();
+
+	newThread->_threadHandle = -1;
+	_endthreadex( 0 );
+
+	return 0;
 }

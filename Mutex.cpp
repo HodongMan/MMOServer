@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Mutex.h"
 
-Mutex::Mutex( int spinLockCount )
+Lock::Lock( int spinLockCount )
 	: _lockCount{ 0 }
 {
 	if ( 0 < spinLockCount )
@@ -14,12 +14,12 @@ Mutex::Mutex( int spinLockCount )
 	}
 }
 
-Mutex::~Mutex( void )
+Lock::~Lock( void )
 {
 	DeleteCriticalSection( &_mutex );
 }
 
-void Mutex::lock( void ) noexcept
+void Lock::lock( void ) noexcept
 {
 	if ( false == TryEnterCriticalSection( & _mutex ) )
 	{
@@ -29,7 +29,7 @@ void Mutex::lock( void ) noexcept
 	_lockCount += 1;
 }
 
-bool Mutex::tryLock( void ) noexcept
+bool Lock::tryLock( void ) noexcept
 {
 	if ( false == TryEnterCriticalSection( & _mutex ) )
 	{
@@ -41,19 +41,19 @@ bool Mutex::tryLock( void ) noexcept
 	return false;
 }
 
-void Mutex::unlock( void ) noexcept
+void Lock::unlock( void ) noexcept
 {
 	LeaveCriticalSection( &_mutex );
 
 	_lockCount -= 1;
 }
 
-const CRITICAL_SECTION& Mutex::getCriticalSection( void ) const noexcept
+const CRITICAL_SECTION& Lock::getCriticalSection( void ) const noexcept
 {
 	return _mutex;
 }
 
-unsigned int Mutex::getLockCount( void ) noexcept
+unsigned int Lock::getLockCount( void ) noexcept
 {
 	return 0;
 }

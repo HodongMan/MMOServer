@@ -115,12 +115,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IOCPManagerServer.h" />
+    <ClInclude Include="IOCPWorkerThread.h" />
     <ClInclude Include="Mutex.h" />
+    <ClInclude Include="Netstat.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Semaphore.h" />
+    <ClInclude Include="SocketWindow.h" />
+    <ClInclude Include="TCPSocket.h" />
+    <ClInclude Include="Thread.h" />
+    <ClInclude Include="TypeSocket.h" />
+    <ClInclude Include="WinsockNet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IOCPManagerServer.cpp" />
+    <ClCompile Include="IOCPWorkerThread.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mutex.cpp" />
+    <ClCompile Include="Semaphore.cpp" />
+    <ClCompile Include="SocketWindow.cpp" />
+    <ClCompile Include="TCPSocket.cpp" />
+    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="WinsockNet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

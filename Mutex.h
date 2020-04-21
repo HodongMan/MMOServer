@@ -1,12 +1,12 @@
 #pragma once
 
 
-class Mutex
+class Lock
 {
 public:
 
-	Mutex( int spinLockCount = 0 );
-	virtual ~Mutex( void );
+	Lock( int spinLockCount = 0 );
+	virtual ~Lock( void );
 
 	void									lock( void ) noexcept;
 	bool									tryLock( void ) noexcept;
@@ -81,6 +81,6 @@ private:
 	MUTEX* _mutex;
 };
 
-using Locker		= LockGuard<Mutex>;
+using Locker		= LockGuard<Lock>;
 using SpinLocker	= LockGuard<SpinLock>;
 

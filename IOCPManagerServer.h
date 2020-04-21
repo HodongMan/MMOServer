@@ -26,8 +26,8 @@ private:
 
 	PerConnectionData * _userData;
 
-	Mutex				_mutex;
-	Mutex				_writerMutex;
+	Lock				_mutex;
+	Lock				_writerMutex;
 };
 
 
