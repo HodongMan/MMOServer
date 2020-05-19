@@ -8,5 +8,9 @@
 #include <stdint.h>
 #include <float.h>
 #include <process.h> 
+#include <assert.h>
+#include <winnt.h>
+#include <mmsystem.h>
+#include <time.h>
 
 using u32 = unsigned int;

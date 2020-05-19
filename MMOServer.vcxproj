@@ -115,10 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Atomic.hpp" />
     <ClInclude Include="IOCPManagerServer.h" />
     <ClInclude Include="IOCPWorkerThread.h" />
     <ClInclude Include="Mutex.h" />
     <ClInclude Include="Netstat.h" />
+    <ClInclude Include="Noncopyable.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Semaphore.h" />
     <ClInclude Include="SocketWindow.h" />

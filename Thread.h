@@ -1,43 +1,33 @@
 #pragma once
 
+#include "TypeThread.h"
+#include "Mutex.h"
+
+class Task;
+
 
 class Thread
 {
 public:
-	Thread( void );
-
-	bool				start( void ) noexcept;
-	void				stop( void ) noexcept;
-	void				stopAndDelete( void ) noexcept;
-
-	void				suspend( void ) noexcept;
-	unsigned int		resume( void ) noexcept;
-
-	bool				stopRequested( void ) const noexcept;
-	bool				isRunning( void ) const noexcept;
-
-	uintptr_t			getHandle( void ) const noexcept;
-	DWORD				getThreadId( void )	const noexcept;
-
-	void				changeHardwareThread( const u32 hardwareThread ) noexcept;
-
-	static void			suspendAllThreads( DWORD exceptionThread ) noexcept;
-
-protected:
-
-	virtual void run( void ) = 0;
+	Thread( int threadWaitSecond = 0 );
 	virtual ~Thread( void );
 
-private:
+	THREAD_ID			createThread( void ) noexcept;
+	void				join( void ) noexcept;
 
-	volatile bool					_stopRequest;
-	uintptr_t volatile				_threadHandle;
-	UINT							_threadID;
+	virtual void		onStart( void ) noexcept;
+	virtual void		onEnd( void ) noexcept;
 
-	friend unsigned __stdcall		threadStarter( void* thread );
-			
-	void							updateHardwareThread( void ) const noexcept;
+	virtual void		onProcessTaskStart( Task* task ) noexcept;
+	virtual void		processTask( Task* task ) noexcept;
+	virtual void		onProcessTaskEnd( Task* task ) noexcept;
 
-	static Thread*					g_threads[256];
-	static volatile unsigned int	g_numThreads;
+
+	static unsigned __stdcall threadFunc( void *arg ) noexcept;
+protected:
+
+	Lock				_lock;
+	uintptr_t volatile	_threadHandle;
+	const int			_threadWaitSecond; // readonly
+	ThreadState			_threadState;
 };

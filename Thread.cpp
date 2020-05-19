@@ -2,94 +2,12 @@
 
 #include "Thread.h"
 
-
-static unsigned __stdcall threadStarter( void* thread );
-
-Thread*	Thread::g_threads[256]				= { nullptr };
-volatile unsigned int Thread::g_numThreads	= 0;
-
-Thread::Thread( void )
-	: _threadID{ 0 }
-	, _stopRequest{ true }
+Thread::Thread( int threadWaitSecond )
+	: _threadWaitSecond{ threadWaitSecond }
+	, _threadHandle{ -1 }
+	, _threadState{ ThreadState::THREAD_STATE_END }
 {
 
-}
-
-bool Thread::start( void ) noexcept
-{
-	_stopRequest	= false;
-	_threadHandle	= _beginthreadex( NULL, 0, threadStarter, NULL, 0, &_threadID );
-
-#if IS_PC_BUILD
-	if ( 1- != _threadHandle )
-	{
-		SYSTEM_INFO sysInfo;
-		GetSystemInfo(&sysInfo);
-		if(! CommandLine::getInstance()->IsPresent("noaffinitymasking") && sysInfo.dwNumberOfProcessors >= 8)
-			SetThreadAffinityMask((HANDLE)_threadHandle, ~3);
-	}
-#endif
-
-	return -1 != _threadHandle;
-}
-
-
-void Thread::stop( void ) noexcept
-{
-	_stopRequest = true;
-	_endthreadex( 0 );
-}
-
-void Thread::stopAndDelete( void ) noexcept
-{
-	stop();
-}
-
-void Thread::suspend( void ) noexcept
-{
-	while ( 0xffffffff == SuspendThread( (HANDLE)_threadHandle ) );
-}
-
-unsigned int Thread::resume( void ) noexcept
-{
-	return ResumeThread( (HANDLE)_threadHandle );
-}
-
-bool Thread::stopRequested( void ) const noexcept
-{
-	updateHardwareThread();
-
-	return _stopRequest;
-}
-
-bool Thread::isRunning( void ) const noexcept
-{
-	return -1 != _threadHandle;
-}
-
-uintptr_t Thread::getHandle( void ) const noexcept
-{
-	return _threadHandle;
-}
-
-DWORD Thread::getThreadId( void ) const noexcept
-{
-	return _threadID;
-}
-
-void Thread::changeHardwareThread(const u32 hardwareThread) noexcept
-{
-}
-
-void Thread::suspendAllThreads( DWORD exceptionThread ) noexcept
-{
-	for ( unsigned int ii = 0; ii < g_numThreads; ++ii )
-	{
-		if ( g_threads[ii]->getThreadId() != exceptionThread )
-		{
-			g_threads[ii]->suspend();
-		}
-	}
 }
 
 Thread::~Thread( void )
@@ -97,25 +15,39 @@ Thread::~Thread( void )
 
 }
 
-void Thread::updateHardwareThread( void ) const noexcept
+THREAD_ID Thread::createThread( void ) noexcept
+{
+	_threadHandle = _beginthreadex( NULL, 0, &Thread::threadFunc, (void*)this, NULL, 0 );
+
+	return (THREAD_ID)_threadHandle;
+}
+
+void Thread::join( void ) noexcept
 {
 
 }
 
-unsigned __stdcall threadStarter( void * thread )
+void Thread::onStart( void ) noexcept
 {
-	Thread* newThread		= nullptr;
 
-	newThread				= static_cast<Thread*>( thread );
+}
 
-	Thread::g_threads[Thread::g_numThreads] = newThread;
-	Thread::g_numThreads += 1;
+void Thread::onEnd( void ) noexcept
+{
 
-	newThread->_threadID = GetCurrentThreadId();
-	newThread->run();
+}
 
-	newThread->_threadHandle = -1;
-	_endthreadex( 0 );
+void Thread::onProcessTaskStart( Task* task ) noexcept
+{
 
-	return 0;
+}
+
+void Thread::processTask( Task* task ) noexcept
+{
+
+}
+
+void Thread::onProcessTaskEnd( Task * task ) noexcept
+{
+
 }
