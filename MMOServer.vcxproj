@@ -115,7 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Assert.h" />
     <ClInclude Include="Atomic.hpp" />
+    <ClInclude Include="CommonSocketImpl.h" />
     <ClInclude Include="IOCPManagerServer.h" />
     <ClInclude Include="IOCPWorkerThread.h" />
     <ClInclude Include="Mutex.h" />
@@ -130,6 +132,7 @@
     <ClInclude Include="WinsockNet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommonSocketImpl.cpp" />
     <ClCompile Include="IOCPManagerServer.cpp" />
     <ClCompile Include="IOCPWorkerThread.cpp" />
     <ClCompile Include="main.cpp" />

@@ -13,4 +13,9 @@
 #include <mmsystem.h>
 #include <time.h>
 
+#include <string>
+#include <cassert>
+#include <iostream>
+#include <algorithm>
+
 using u32 = unsigned int;

@@ -12,7 +12,7 @@ Thread::Thread( int threadWaitSecond )
 
 Thread::~Thread( void )
 {
-
+	_endthreadex( 0 );
 }
 
 THREAD_ID Thread::createThread( void ) noexcept

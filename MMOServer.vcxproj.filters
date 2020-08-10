@@ -16,6 +16,9 @@
     <Filter Include="Base">
       <UniqueIdentifier>{8b2675f5-af62-410c-a80e-47e289eb0ca3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Net">
+      <UniqueIdentifier>{1bc9ff0b-ffc4-419b-8ff2-c07fde3aca9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mutex.h">
@@ -48,13 +51,19 @@
     <ClInclude Include="SocketWindow.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="TypeSocket.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Noncopyable.h">
       <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="Atomic.hpp">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonSocketImpl.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeSocket.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert.h">
       <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="SocketWindow.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonSocketImpl.cpp">
+      <Filter>Net</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
