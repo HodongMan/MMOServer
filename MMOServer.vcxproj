@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -117,30 +117,38 @@
   <ItemGroup>
     <ClInclude Include="Assert.h" />
     <ClInclude Include="Atomic.hpp" />
-    <ClInclude Include="CommonSocketImpl.h" />
+    <ClInclude Include="IOCoreManager.h" />
     <ClInclude Include="IOCPManagerServer.h" />
     <ClInclude Include="IOCPWorkerThread.h" />
-    <ClInclude Include="Mutex.h" />
     <ClInclude Include="Netstat.h" />
+    <ClInclude Include="Network\CommonSocket.h" />
+    <ClInclude Include="Network\IStream.h" />
+    <ClInclude Include="Network\MemoryStream.h" />
+    <ClInclude Include="Network\TypeSocket.h" />
     <ClInclude Include="Noncopyable.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Semaphore.h" />
-    <ClInclude Include="SocketWindow.h" />
     <ClInclude Include="TCPSocket.h" />
-    <ClInclude Include="Thread.h" />
-    <ClInclude Include="TypeSocket.h" />
+    <ClInclude Include="Thread\Mutex.h" />
+    <ClInclude Include="Thread\Semaphore.h" />
+    <ClInclude Include="Thread\Thread.h" />
+    <ClInclude Include="Thread\ThreadManager.h" />
+    <ClInclude Include="Thread\TypeThread.h" />
+    <ClInclude Include="Thread\WorkerThread.h" />
     <ClInclude Include="WinsockNet.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommonSocketImpl.cpp" />
+    <ClCompile Include="IOCoreManager.cpp" />
     <ClCompile Include="IOCPManagerServer.cpp" />
     <ClCompile Include="IOCPWorkerThread.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mutex.cpp" />
-    <ClCompile Include="Semaphore.cpp" />
-    <ClCompile Include="SocketWindow.cpp" />
+    <ClCompile Include="Network\CommonSocket.cpp" />
+    <ClCompile Include="Network\MemoryStream.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
-    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="Thread\Mutex.cpp" />
+    <ClCompile Include="Thread\Semaphore.cpp" />
+    <ClCompile Include="Thread\Thread.cpp" />
+    <ClCompile Include="Thread\ThreadManager.cpp" />
+    <ClCompile Include="Thread\WorkerThread.cpp" />
     <ClCompile Include="WinsockNet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

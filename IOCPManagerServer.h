@@ -1,8 +1,8 @@
 #pragma once
 
 
-#include "Thread.h"
-#include "Mutex.h"
+#include "Thread/Thread.h"
+#include "Thread/Mutex.h"
 
 class PerConnectionData;
 class IocpWorkerThread;

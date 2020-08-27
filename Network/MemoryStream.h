@@ -3,7 +3,7 @@
 #include "IStream.h"
 
 
-class MemoryStream : public IStream
+class MemoryStream : public INetworkStream
 {
 public:
 	MemoryStream( void* buffef, const int length, bool ownsStreamFlag = false );

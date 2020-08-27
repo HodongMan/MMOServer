@@ -67,7 +67,7 @@ public:
 
 	__forceinline void		unlock( void ) noexcept
 	{
-		mutex->unlock();
+		_mutex->unlock();
 		_mutex = nullptr;
 	}
 

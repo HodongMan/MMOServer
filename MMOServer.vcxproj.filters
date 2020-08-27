@@ -1,55 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Base">
       <UniqueIdentifier>{8b2675f5-af62-410c-a80e-47e289eb0ca3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Net">
+    <Filter Include="Network">
       <UniqueIdentifier>{1bc9ff0b-ffc4-419b-8ff2-c07fde3aca9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{3e1d12de-b75b-49dd-bfec-04b3d7f4baa9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Mutex.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Netstat.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Semaphore.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Thread.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="WinsockNet.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="TCPSocket.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="IOCPManagerServer.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="IOCPWorkerThread.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SocketWindow.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Noncopyable.h">
       <Filter>Base</Filter>
@@ -57,44 +44,80 @@
     <ClInclude Include="Atomic.hpp">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="CommonSocketImpl.h">
-      <Filter>Net</Filter>
-    </ClInclude>
-    <ClInclude Include="TypeSocket.h">
-      <Filter>Net</Filter>
-    </ClInclude>
     <ClInclude Include="Assert.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="IOCoreManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\CommonSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\MemoryStream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\TypeSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\Thread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\ThreadManager.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\WorkerThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\Semaphore.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\IStream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\TypeThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread\Mutex.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Mutex.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Semaphore.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Thread.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="WinsockNet.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="TCPSocket.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="IOCPManagerServer.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="IOCPWorkerThread.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="SocketWindow.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="IOCoreManager.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="CommonSocketImpl.cpp">
-      <Filter>Net</Filter>
+    <ClCompile Include="Network\CommonSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\MemoryStream.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread\Thread.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread\ThreadManager.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread\WorkerThread.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread\Semaphore.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread\Mutex.cpp">
+      <Filter>Thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

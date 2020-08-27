@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Thread.h"
+#include "Thread/Thread.h"
 
 
 class IOCPServer;
