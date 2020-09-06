@@ -1,11 +1,39 @@
 #pragma once
 
 #include "TypeThread.h"
-#include "Mutex.h"
+#include "../Base/Atomic.hpp"
+#include "../Base/Noncopyable.h"
 
 class Task;
 
+class Thread : public Noncopyable
+{
+public:
+	Thread( void );
+	virtual ~Thread( void );
 
+	bool isRunning( void ) const noexcept;
+	bool start( void ) noexcept;
+	virtual bool run( void ) noexcept;
+	bool suspend( void ) noexcept;
+	void resume( void ) noexcept;
+	void stop( void ) noexcept;
+
+	static unsigned __stdcall threadFunc( void *arg ) noexcept;
+
+protected:
+	virtual void helpStop( void ) noexcept;
+
+private:
+	HANDLE			m_hThread;
+	unsigned int	m_threadId;
+
+	AtomicInt64		m_run;
+	AtomicInt64		m_suspend;
+
+};
+
+/*
 class Thread
 {
 public:
@@ -31,3 +59,5 @@ protected:
 	const int			_threadWaitSecond; // readonly
 	ThreadState			_threadState;
 };
+
+*/

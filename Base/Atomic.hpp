@@ -23,7 +23,7 @@ public:
 
 	T getAndAdd( T& x ) noexcept
 	{
-		return InterlockedExchangeAdd( &value_, x );
+		return InterlockedExchangeAdd( &_value, x );
 	}
 
 private:

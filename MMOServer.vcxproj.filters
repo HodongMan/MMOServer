@@ -38,15 +38,6 @@
     <ClInclude Include="IOCPWorkerThread.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Noncopyable.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Atomic.hpp">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Assert.h">
-      <Filter>Base</Filter>
-    </ClInclude>
     <ClInclude Include="IOCoreManager.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -79,6 +70,18 @@
     </ClInclude>
     <ClInclude Include="Thread\Mutex.h">
       <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Assert.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Atomic.hpp">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Noncopyable.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\ObjectPool.h">
+      <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

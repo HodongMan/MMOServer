@@ -30,7 +30,7 @@ private:
 	Lock				_writerMutex;
 };
 
-
+/*
 class IOCPManagerServer : public Thread
 {
 public:
@@ -45,3 +45,4 @@ public:
 	virtual void run( void ) noexcept;
 
 };
+*/

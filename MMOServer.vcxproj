@@ -115,8 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Assert.h" />
-    <ClInclude Include="Atomic.hpp" />
+    <ClInclude Include="Base\Assert.h" />
+    <ClInclude Include="Base\Atomic.hpp" />
+    <ClInclude Include="Base\Noncopyable.h" />
+    <ClInclude Include="Base\ObjectPool.h" />
     <ClInclude Include="IOCoreManager.h" />
     <ClInclude Include="IOCPManagerServer.h" />
     <ClInclude Include="IOCPWorkerThread.h" />
@@ -125,7 +127,6 @@
     <ClInclude Include="Network\IStream.h" />
     <ClInclude Include="Network\MemoryStream.h" />
     <ClInclude Include="Network\TypeSocket.h" />
-    <ClInclude Include="Noncopyable.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TCPSocket.h" />
     <ClInclude Include="Thread\Mutex.h" />
