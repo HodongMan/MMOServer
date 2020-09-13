@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pch.h"
+#include "../pch.h"
 
 const int MAX_WRITE_SIZE	= 32 * 1024;
 const int MAX_READ_SIZE		= 8 * 1024;
@@ -23,3 +23,15 @@ struct ReadRequest
 	int bytesExpected;
 	int bytesRead;
 };
+
+enum class ConnectionErrorType
+{
+	CONNECTION_OK,
+	CONNECTION_NODATA,
+	CONNECTION_BROKEN
+}
+
+
+using DelimiterType = int;
+
+const int PACKET_DATA_SIZE = 1364;

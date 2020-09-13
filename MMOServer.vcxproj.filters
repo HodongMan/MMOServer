@@ -83,6 +83,21 @@
     <ClInclude Include="Base\ObjectPool.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="Network\TCPSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\ReadMessage.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\WriteMessage.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\MessageHandler.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -121,6 +136,12 @@
     </ClCompile>
     <ClCompile Include="Thread\Mutex.cpp">
       <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\TCPSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\ReadMessage.cpp">
+      <Filter>Network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

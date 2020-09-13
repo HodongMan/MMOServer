@@ -126,7 +126,11 @@
     <ClInclude Include="Network\CommonSocket.h" />
     <ClInclude Include="Network\IStream.h" />
     <ClInclude Include="Network\MemoryStream.h" />
+    <ClInclude Include="Network\MessageHandler.h" />
+    <ClInclude Include="Network\ReadMessage.h" />
+    <ClInclude Include="Network\TCPSocket.h" />
     <ClInclude Include="Network\TypeSocket.h" />
+    <ClInclude Include="Network\WriteMessage.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TCPSocket.h" />
     <ClInclude Include="Thread\Mutex.h" />
@@ -135,6 +139,7 @@
     <ClInclude Include="Thread\ThreadManager.h" />
     <ClInclude Include="Thread\TypeThread.h" />
     <ClInclude Include="Thread\WorkerThread.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="WinsockNet.h" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +149,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Network\CommonSocket.cpp" />
     <ClCompile Include="Network\MemoryStream.cpp" />
+    <ClCompile Include="Network\ReadMessage.cpp" />
+    <ClCompile Include="Network\TCPSocket.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
     <ClCompile Include="Thread\Mutex.cpp" />
     <ClCompile Include="Thread\Semaphore.cpp" />

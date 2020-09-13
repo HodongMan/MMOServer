@@ -37,5 +37,5 @@ private:
 	struct sockaddr_in			m_localAddress;
 	struct sockaddr_in			m_remoteAddress;
 
-	volatile long				my_referenceCount;
+	volatile long				m_referenceCount;
 };
